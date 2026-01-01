@@ -9,7 +9,14 @@ document.addEventListener("DOMContentLoaded", () => {
         "ml": "Malayalam",
         "hi": "Hindi",
         "de": "German",
-        "fr": "French"
+        "fr": "French",
+        "ar": "Arabic",
+        "pt": "Portuguese",
+        "ja": "Japanese",
+        "es": "Spanish",
+        "zh": "Chinese",
+        "kn": "Kannada",
+        "ko": "Korean"
     };
 
     for (const code in supportedLanguages) {
