@@ -5,24 +5,19 @@ translateBtn = document.querySelector("button");
 
 document.addEventListener("DOMContentLoaded", () => {
     const languageSelect = document.getElementById('languageSelect');
+    const supportedLanguages = {
+        "ml": "Malayalam",
+        "hi": "Hindi",
+        "de": "German",
+        "fr": "French"
+    };
 
-    // Fetch supported languages from the API
-    fetch('https://api.mymemory.translated.net/get_supported_languages.php')
-        .then(response => response.json())
-        .then(data => {
-            // Check if data is an array
-            if (Array.isArray(data)) {
-                data.forEach(lang => {
-                    let option = document.createElement('option');
-                    option.value = lang.code;
-                    option.textContent = lang.name;
-                    languageSelect.appendChild(option);
-                });
-            } else {
-                console.error('Unexpected API response format for languages');
-            }
-        })
-        .catch(error => console.error('Error fetching languages:', error));
+    for (const code in supportedLanguages) {
+        let option = document.createElement('option');
+        option.value = code;
+        option.textContent = supportedLanguages[code];
+        languageSelect.appendChild(option);
+    }
 });
 
 
